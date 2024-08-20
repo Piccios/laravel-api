@@ -11,7 +11,14 @@ class ProjectController extends Controller
     public function index()
     {
         // Ritorna un JASON con tutti i progetti
-        return Project::all();
+        $posts = Project::paginate(10);
+
+        return response()->json(
+            [
+                'response' => true,
+                'message' => 'Lista progetti',
+                'results' => $posts
+            ]);
     }
 
     public function show(Project $project)
