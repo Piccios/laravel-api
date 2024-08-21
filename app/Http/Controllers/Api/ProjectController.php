@@ -11,7 +11,7 @@ class ProjectController extends Controller
     public function index()
     {
         // Ritorna un JASON con tutti i progetti
-        $projects = Project::with('type', 'technologies')->paginate(5);
+        $projects = Project::with('type', 'technologies')->paginate(10);
 
         return response()->json(
             [
